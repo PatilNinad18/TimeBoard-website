@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logo from "../assets/logo.png";
 
 function NotFoundComponent() {
   return (
@@ -37,37 +38,33 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
-    // Remove any Lovable-injected UI and disable its event bridge at runtime.
-    useEffect(() => {
-      try {
-        if (typeof window !== "undefined") {
-          // Disable any global event bridge
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          window.__lovableEvents = undefined;
+    try {
+      if (typeof window !== "undefined") {
+        // Disable any global event bridge
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.__lovableEvents = undefined;
 
-          const removeLovableElements = () => {
-            try {
-              // Remove common identifiable elements and any nodes containing 'lovable'
-              document.querySelectorAll('a[href*="lovable.dev"], [data-lovable], .lovable, [id*="lovable"], [class*="lovable"]').forEach(n => n.remove());
-              document.querySelectorAll('*').forEach((el) => {
-                try {
-                  if (el.textContent && /lovable/i.test(el.textContent)) el.remove();
-                } catch {}
-              });
-            } catch {}
-          };
+        const removeLovableElements = () => {
+          try {
+            // Remove common identifiable elements and any nodes containing 'lovable'
+            document.querySelectorAll('a[href*="lovable.dev"], [data-lovable], .lovable, [id*="lovable"], [class*="lovable"]').forEach((n) => n.remove());
+            document.querySelectorAll('*').forEach((el) => {
+              try {
+                if (el.textContent && /lovable/i.test(el.textContent)) el.remove();
+              } catch {}
+            });
+          } catch {}
+        };
 
-          if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", removeLovableElements);
-          } else {
-            removeLovableElements();
-          }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", removeLovableElements);
+        } else {
+          removeLovableElements();
         }
-      } catch {}
-    }, [error]);
+      }
+    } catch {}
+  }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -138,6 +135,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        href: logo,
+        type: "image/png",
       },
     ],
     scripts: [

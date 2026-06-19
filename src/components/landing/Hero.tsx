@@ -3,6 +3,7 @@ import { Download, ArrowRight, Activity, Target, TrendingUp } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "./ParticleBackground";
 import { DOWNLOAD_URL } from "./constants";
+import logo from "@/assets/logo.png";
 // import dashboardImg from "@/assets/image-6.png.asset.json";
 import analytics from "@/assets/anayltics-dark.png";
 
@@ -30,14 +31,17 @@ export function Hero() {
             Now available for Windows · v1.0.0
           </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease }}
-            className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl"
+            className="mx-auto flex max-w-fit items-center gap-3 rounded-full bg-white/5 px-4 py-3 text-center backdrop-blur-xl md:text-left"
           >
-            Take Control of <span className="text-gradient">Your Time</span>
-          </motion.h1>
+            <img src={logo} alt="TimeBoard logo" className="h-10 w-10 rounded-xl object-contain" />
+            <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+              Take Control of <span className="text-gradient">Your Time</span>
+            </h1>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
