@@ -45,7 +45,7 @@ export function HowItWorks() {
             {STEPS.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
                 <div
-                  className={`relative flex items-start gap-5 md:gap-0 ${
+                  className={`relative flex flex-col items-start gap-5 md:gap-0 ${
                     i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
@@ -54,7 +54,7 @@ export function HowItWorks() {
                   </div>
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className={`glass-card flex-1 rounded-2xl p-6 md:max-w-[44%] ${
+                    className={`glass-card w-full rounded-2xl p-6 md:max-w-[44%] ${
                       i % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto"
                     }`}
                   >

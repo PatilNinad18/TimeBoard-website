@@ -47,7 +47,7 @@ export function StatsSection() {
             Built for focused professionals
           </p>
         </Reveal>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {STATS.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 0.08}>
               <div className="glass-card group flex flex-col items-center rounded-2xl px-4 py-7 text-center transition-transform duration-300 hover:-translate-y-1">

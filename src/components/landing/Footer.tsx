@@ -14,7 +14,7 @@ export function Footer() {
             <span className="text-lg font-extrabold tracking-tight">TimeBoard</span>
           </a>
 
-          <nav className="flex items-center gap-6 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground md:justify-end">
             <a href="#features" className="transition-colors hover:text-foreground">
               Features
             </a>

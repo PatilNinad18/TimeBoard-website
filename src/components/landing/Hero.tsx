@@ -14,8 +14,8 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px] animate-glow-pulse" />
-        <div className="absolute right-[8%] top-[30%] h-[360px] w-[360px] rounded-full bg-secondary/20 blur-[130px] animate-glow-pulse" />
+        <div className="hidden md:block absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px] animate-glow-pulse" />
+        <div className="hidden md:block absolute right-[8%] top-[30%] h-[360px] w-[360px] rounded-full bg-secondary/20 blur-[130px] animate-glow-pulse" />
       </div>
       <ParticleBackground />
 
@@ -35,10 +35,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease }}
-            className="mx-auto flex max-w-fit items-center gap-3 rounded-full bg-white/5 px-4 py-3 text-center backdrop-blur-xl md:text-left"
+            className="mx-auto flex w-full max-w-full flex-col items-center gap-3 rounded-3xl bg-white/5 px-4 py-4 text-center backdrop-blur-xl sm:px-6 sm:py-6 md:max-w-[900px] md:flex-row md:text-left"
           >
             <img src={logo} alt="TimeBoard logo" className="h-10 w-10 rounded-xl object-contain" />
-            <h1 className="text-balance text-xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
+            <h1 className="text-balance text-3xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
               Take Control of <span className="text-gradient">Your Time</span>
             </h1>
           </motion.div>
@@ -47,7 +47,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground md:text-xl"
+            className="mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl"
           >
             Track activity, analyze productivity, and build better focus habits
             with TimeBoard.
@@ -57,7 +57,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease }}
-            className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Button asChild variant="hero" size="xl">
               <a href={DOWNLOAD_URL}>

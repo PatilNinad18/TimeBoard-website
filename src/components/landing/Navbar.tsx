@@ -34,7 +34,7 @@ export function Navbar() {
     >
       <div className="container-page">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 ${
+          className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl px-4 py-3 transition-all duration-300 ${
             scrolled ? "glass-card" : ""
           }`}
         >
@@ -45,7 +45,7 @@ export function Navbar() {
             <span className="text-lg font-extrabold tracking-tight">TimeBoard</span>
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}

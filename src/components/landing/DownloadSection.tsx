@@ -20,15 +20,15 @@ export function DownloadSection() {
               and build lasting habits. Free, private, and lightweight.
             </p>
 
-            <div className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild variant="hero" size="xl">
-                <a href={DOWNLOAD_URL}>
+            <div className="relative mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+                <a href={DOWNLOAD_URL} className="w-full text-center sm:w-auto">
                   <Download className="h-5 w-5" />
                   Download TimeBoard for Windows
                 </a>
               </Button>
-              <Button asChild variant="glass" size="xl">
-                <a href={GITHUB_URL} target="_blank" rel="noreferrer noopener">
+              <Button asChild variant="glass" size="xl" className="w-full sm:w-auto">
+                <a href={GITHUB_URL} target="_blank" rel="noreferrer noopener" className="w-full text-center sm:w-auto">
                   <Github className="h-5 w-5" />
                   View on GitHub
                 </a>

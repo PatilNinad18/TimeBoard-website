@@ -163,7 +163,27 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    min-height: 100vh;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
 }
 
 @layer components {
@@ -200,9 +220,3 @@
   }
 }
 
-@utility container-page {
-  width: 100%;
-  margin-inline: auto;
-  max-width: 80rem;
-  padding-inline: 1.5rem;
-}

@@ -131,7 +131,7 @@ function Bar({ pct, color, delay }: { pct: number; color: string; delay: number 
 export function DashboardShowcase() {
   return (
     <section id="dashboard" className="relative py-24 md:py-32">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[160px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[160px] sm:h-[280px] sm:w-[280px] md:h-[500px] md:w-[700px]" />
       <div className="container-page relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
@@ -147,8 +147,8 @@ export function DashboardShowcase() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-14">
-          <div className="glass-card grid gap-5 rounded-3xl p-5 md:grid-cols-3 md:p-7">
-            <div className="glass-card flex flex-col items-center justify-center rounded-2xl p-6">
+          <div className="glass-card grid gap-5 rounded-3xl p-5 sm:grid-cols-1 md:grid-cols-3 md:p-7">
+            <div className="glass-card flex min-h-[260px] flex-col items-center justify-center rounded-2xl p-6">
               <h3 className="mb-4 self-start text-sm font-semibold text-muted-foreground">
                 Productivity Score
               </h3>
