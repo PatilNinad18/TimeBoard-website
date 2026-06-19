@@ -38,7 +38,7 @@ export function Hero() {
             className="mx-auto flex max-w-fit items-center gap-3 rounded-full bg-white/5 px-4 py-3 text-center backdrop-blur-xl md:text-left"
           >
             <img src={logo} alt="TimeBoard logo" className="h-10 w-10 rounded-xl object-contain" />
-            <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+            <h1 className="text-balance text-xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
               Take Control of <span className="text-gradient">Your Time</span>
             </h1>
           </motion.div>
