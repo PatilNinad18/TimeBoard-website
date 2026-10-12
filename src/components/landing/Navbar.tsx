@@ -1,8 +1,9 @@
+
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Clock, Menu, X, Download } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DOWNLOAD_URL } from "./constants";
+import { GITHUB_URL } from "./constants";
 import logo from "@/assets/logo.png";
 
 const NAV_LINKS = [
@@ -16,9 +17,18 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const scrollToDownloads = () => {
+    setOpen(false);
+    document.getElementById("download")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -38,13 +48,21 @@ export function Navbar() {
             scrolled ? "glass-card" : ""
           }`}
         >
+          {/* Logo */}
           <a href="#top" className="flex items-center gap-2.5">
             <span className="flex h-10 w-10 items-center justify-center rounded-2xl">
-              <img src={logo} alt="TimeBoard logo" className="h-6 w-6 rounded-sm object-contain" />
+              <img
+                src={logo}
+                alt="TimeBoard logo"
+                className="h-6 w-6 rounded-sm object-contain"
+              />
             </span>
-            <span className="text-lg font-extrabold tracking-tight">TimeBoard</span>
+            <span className="text-lg font-extrabold tracking-tight">
+              TimeBoard
+            </span>
           </a>
 
+          {/* Desktop navigation */}
           <nav className="hidden items-center gap-6 md:flex lg:gap-8">
             {NAV_LINKS.map((link) => (
               <a
@@ -57,24 +75,34 @@ export function Navbar() {
             ))}
           </nav>
 
+          {/* Desktop download button */}
           <div className="hidden md:block">
-            <Button asChild variant="hero" size="lg">
-              <a href={DOWNLOAD_URL}>
-                <Download className="h-4 w-4" />
-                Download
-              </a>
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={scrollToDownloads}
+            >
+              <Download className="h-4 w-4" />
+              Download
             </Button>
           </div>
 
+          {/* Mobile menu toggle */}
           <button
             className="md:hidden"
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
+        {/* Mobile navigation */}
         {open && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
@@ -91,10 +119,24 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button asChild variant="hero" className="mt-1">
-              <a href={DOWNLOAD_URL}>
-                <Download className="h-4 w-4" />
-                Download for Windows
+
+            <Button
+              variant="hero"
+              className="mt-1"
+              onClick={scrollToDownloads}
+            >
+              <Download className="h-4 w-4" />
+              Download TimeBoard
+            </Button>
+
+            <Button asChild variant="glass" className="mt-1">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+              >
+                View on GitHub
               </a>
             </Button>
           </motion.div>
