@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import {
   DOWNLOAD_URL,
-  MAC_DOWNLOAD_URL,
-  LINUX_DOWNLOAD_URL,
   GITHUB_URL,
   APP_VERSION,
 } from "./constants";
@@ -31,8 +29,9 @@ export function DownloadSection() {
               focus habits with TimeBoard. Free, private, and lightweight.
             </p>
 
-            {/* Download buttons */}
+            {/* Download options */}
             <div className="relative mx-auto mt-10 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+
               {/* Windows */}
               <div className="flex flex-col items-center gap-3 rounded-2xl border border-border/50 bg-background/20 p-5">
                 <Monitor className="h-8 w-8" />
@@ -69,19 +68,16 @@ export function DownloadSection() {
                 </div>
 
                 <Button
-                  asChild
-                  variant="hero"
+                  variant="glass"
                   size="xl"
-                  className="w-full"
+                  className="w-full cursor-not-allowed opacity-70"
+                  disabled
                 >
-                  <a href={MAC_DOWNLOAD_URL}>
-                    <Download className="h-5 w-5" />
-                    Download .dmg
-                  </a>
+                  Coming Soon
                 </Button>
 
                 <span className="text-xs text-muted-foreground">
-                  Experimental · Testing needed
+                  In development
                 </span>
               </div>
 
@@ -97,19 +93,16 @@ export function DownloadSection() {
                 </div>
 
                 <Button
-                  asChild
-                  variant="hero"
+                  variant="glass"
                   size="xl"
-                  className="w-full"
+                  className="w-full cursor-not-allowed opacity-70"
+                  disabled
                 >
-                  <a href={LINUX_DOWNLOAD_URL}>
-                    <Download className="h-5 w-5" />
-                    Download AppImage
-                  </a>
+                  Coming Soon
                 </Button>
 
                 <span className="text-xs text-muted-foreground">
-                  Experimental · Testing needed
+                  In development
                 </span>
               </div>
             </div>
